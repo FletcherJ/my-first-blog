@@ -5,6 +5,9 @@ from django.utils import timezone
 # Code to handle posting a new blog
 class Post(models.Model):
     # define what we expect for each property
+    # Because we didn't specify a primary key in our Post model, Django
+    #   creates one for us (by default, a number that increases by one
+    #   for each record, i.e. 1, 2, 3) and adds it as a field named pk
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
